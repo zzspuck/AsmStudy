@@ -13,7 +13,7 @@ public class ClassWriterTest {
         String clazzFilePath = Utils.getClassFilePath(clazz);
         ClassReader classReader = new ClassReader(new FileInputStream(clazzFilePath));
 
-        ClassWriter classWriter = new ClassWriter(0);
+        ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
 
         AddTimerClassVisitor addTimerClassVisitor = new AddTimerClassVisitor(Opcodes.ASM9, classWriter);
         classReader.accept(addTimerClassVisitor, 0);
